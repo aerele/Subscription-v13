@@ -25,7 +25,10 @@ def validate_license():
 
 		if response.status_code == 200:
 			data = response.json()
-			frappe.msgprint(data['message'])
+			if data['statusCode'] in ['A', 'B', 'C', 'F']:
+				frappe.throw(data['message'])
+			elif data['statusCode'] == 'D':
+				frappe.msgprint(data['message'])
 		else:
 			frappe.throw("Something went wrong!, please try again later")
 
