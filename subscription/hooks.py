@@ -168,3 +168,5 @@ user_data_fields = [
 	}
 ]
 
+# on_login= "subscription.validate_license"
+on_session_creation= "subscription.validate_license"
