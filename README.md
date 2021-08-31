@@ -13,6 +13,6 @@ cd frappe-bench
 ```
 Install Subscription App
 ```
-bench get-app bank_api_integration https://github.com/aerele/Subscription-v13.git
+bench get-app subscription https://github.com/aerele/Subscription-v13.git
 bench --site [site-name] install-app subscription
 ```
