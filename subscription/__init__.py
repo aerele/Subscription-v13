@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 import frappe
-from frappe.sessions import Session
+from frappe.sessions import Session, delete_session
 __version__ = '0.0.1'
 
 def validate_license():
@@ -26,6 +26,7 @@ def validate_license():
 		if response.status_code == 200:
 			data = response.json()
 			if data['statusCode'] in ['A', 'B', 'C', 'F']:
+				delete_session(frappe.session.sid, frappe.session.user)
 				frappe.throw(data['message'])
 			elif data['statusCode'] == 'D':
 				frappe.msgprint(data['message'])
