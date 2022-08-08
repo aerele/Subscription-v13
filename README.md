@@ -1,6 +1,6 @@
 ## Subscription
 
-Subscription
+Can install for V12 and V13
 
 #### License
 
